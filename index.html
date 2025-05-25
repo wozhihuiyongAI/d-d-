@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DM 管理介面 - 龍與地下城商店</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>DM 管理介面</h1>
+  </header>
+  <main>
+    <!-- 商店商品區 -->
+    <section id="admin-section">
+      <h2>所有商店商品明細</h2>
+      <div id="admin-content">
+        <!-- 這裡將以表格形式顯示各商店的商品資料 -->
+      </div>
+    </section>
+
+    <!-- 更新商品表單 -->
+    <section id="update-form">
+      <h2>更新商品</h2>
+      <form id="product-update-form">
+        <label for="store-select">選擇商店:</label>
+        <select id="store-select" name="store">
+          <option value="weapon-store">武器店</option>
+          <option value="potion-store">藥水鋪</option>
+          <option value="magic-store">魔法商行</option>
+        </select>
+        <br><br>
+        <label for="product-id">商品ID:</label>
+        <input type="number" id="product-id" name="product-id" required>
+        <br><br>
+        <label for="new-price">新價格:</label>
+        <input type="number" id="new-price" name="new-price" required>
+        <br><br>
+        <label for="new-stock">新庫存:</label>
+        <input type="number" id="new-stock" name="new-stock" required>
+        <br><br>
+        <label for="new-discount">新折扣 (例如 0.1 代表10%折扣):</label>
+        <input type="number" step="0.01" id="new-discount" name="new-discount" value="0" required>
+        <br><br>
+        <button type="submit">更新商品</button>
+      </form>
+    </section>
+
+    
+    <!-- 管理介面：新增商品 -->
+    <section id="admin">
+      <h2>管理介面：新增商品</h2>
+      <form id="add-product-form">
+        <label for="product-store">商店：
+          <select id="product-store" name="product-store">
+            <option value="weapon-store">武器店</option>
+            <option value="potion-store">藥水鋪</option>
+            <option value="magic-store">魔法商行</option>
+          </select>
+        </label><br><br>
+        
+        <label for="product-name">商品名稱：
+          <input type="text" id="product-name" name="product-name" required>
+        </label><br><br>
+        
+        <label for="product-price">價格：
+          <input type="number" id="product-price" name="product-price" required>
+        </label><br><br>
+        
+        <label for="product-stock">庫存：
+          <input type="number" id="product-stock" name="product-stock" required>
+        </label><br><br>
+        
+        <label for="product-discount">折扣（例如 0 表示無折扣，0.1 表示 10% 折扣）：
+          <input type="number" step="0.01" id="product-discount" name="product-discount" value="0">
+        </label><br><br>
+        
+        <label for="product-description">描述：
+          <textarea id="product-description" name="product-description"></textarea>
+        </label><br><br>
+        
+        <!-- 如有需要，可以增加其他欄位，例如類型、傷害、特殊效果等 -->
+        
+        <button type="submit">新增商品</button>
+      </form>
+    </section>
+  </main>
+
+    <!-- 訂單歷史區 -->
+    <section id="order-history-section">
+      <h2>訂單歷史</h2>
+      <!-- 清空訂單歷史的按鈕 -->
+      <button id="clear-history-btn">清空歷史記錄</button>
+      <!-- 匯出訂單歷史的按鈕 -->
+      <button id="export-history-btn">匯出訂單歷史</button>
+      <div id="order-history">
+        <!-- 訂單歷史將顯示在這裡 -->
+      </div>
+    </section>
+
+    <!-- 銷售報表區 -->
+    <section id="sales-report-section">
+      <h2>銷售統計報表</h2>
+      <div id="sales-report">
+        <!-- 報表資料將動態呈現在這裡 -->
+      </div>
+      <button id="refresh-report-btn">刷新報表</button>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 龍與地下城商店</p>
+  </footer>
+
+  <!-- 正确的脚本加载顺序 -->
+  <script src="data.js"></script>
+  <script src="admin.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
